@@ -4,7 +4,12 @@ Magnificent Monitoring Solution:
    2) Backend api: /monitor-api developed with nodejs http server
    3) Front End: /monitor-ui developed with react and chart.js
    
-Steps to clone repository and run the solution:
+Steps to clone repository and run the solution: 
+  Software requirements: we just need to have below three softwares installed on any machine 
+    1) docker
+    2) docker-compose
+    3) git
+    
   1) git clone git@github.com:pavanboyapati/monitorservicesolution.git
   2) cd monitorservicesolution
   3) sudo docker-compose up --build (Note that this step will take few mins as it builds docker images for the first time)
