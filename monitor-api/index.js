@@ -11,6 +11,9 @@ const http = require("http");
 const { getData } = require("./src/handleData");
 const pollMagnificent = require("./src/poll");
 
+const pollingInterval = process.env.POLL_INTERVAL || 15000;
+const monitorUrl = process.env.MONITOR_URL || "http://magnificent:12345";
+
 const requestHandler = (request, response) => {
   //set CORS heahers
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -33,5 +36,5 @@ const server = http.createServer(requestHandler);
 server.listen(port, err => {
   if (err) console.log("something bad happened", err);
   console.log(`server is listening on ${port}`);
-  pollMagnificent(); //Polling gets initialized when server is up
+  pollMagnificent(monitorUrl, pollingInterval); //Polling gets initialized when server is up
 });

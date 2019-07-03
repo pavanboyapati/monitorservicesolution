@@ -18,6 +18,7 @@ services:
     depends_on:
       - magnificent
     environment:
+      - NODE_ENV=production
       - POLL_INTERVAL=5000
       - MONITOR_URL=http://magnificent:12345
       - DATA_JSON_URL=/usr/app/monitor-api/data.json
