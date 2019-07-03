@@ -21,51 +21,10 @@ Steps to clone repository and run the solution:
           Starting monitorservicesolution_monitor-ui_1 ... done
   4) lauch monitor-ui: http://localhost:3000
 
+
+ Source Code Structure:
+
 monitorservicesolution
-├── docker-compose.yml
-├── magnificent (python app for magnigicent service)
-│   ├── Dockerfile
-│   ├── Pipfile
-│   ├── Pipfile.lock
-│   ├── requirements.txt
-│   └── server.py
-├── monitor-api (Back end API: /api/monitor)
-│   ├── data.json
-│   ├── Dockerfile
-│   ├── index.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── src
-│       ├── handleData.js
-│       └── poll.js
-├── monitor-ui (Front End: http://localhost:3000)
-│   ├── Dockerfile
-│   ├── node_modules
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── public
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   └── manifest.json
-│   ├── README.md
-│   └── src
-│       ├── App.css
-│       ├── App.js
-│       ├── App.test.js
-│       ├── components
-│       │   ├── columnChart.jsx
-│       │   └── dataTable.jsx
-│       ├── index.css
-│       ├── index.js
-│       ├── services
-│       │   └── getMonitoringData.js
-│       └── serviceWorker.js
-└── README.md
-
-
-  
-  Source Code Structure:
-  monitorservicesolution
 ├── docker-compose.yml
 ├── magnificent (python app for magnigicent service)
 │   ├── Dockerfile
