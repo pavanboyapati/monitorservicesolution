@@ -1,3 +1,5 @@
+Open "README.md" in edit mode so text won't be wrapped and below notes are readable.
+
 Magnificent Monitoring Solution:
   Prerequisites:
    1) Docker and Docker-compose
