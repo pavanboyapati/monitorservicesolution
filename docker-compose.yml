@@ -17,6 +17,10 @@ services:
       - "5000:5000"
     depends_on:
       - magnificent
+    environment:
+      - POLL_INTERVAL=5000
+      - MONITOR_URL=http://magnificent:12345
+      - DATA_JSON_URL=/usr/app/monitor-api/data.json
   monitor-ui:
     build: ./monitor-ui
     command: npm start

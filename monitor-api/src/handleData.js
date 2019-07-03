@@ -1,26 +1,35 @@
+/*
+  exports:
+    1) saveData(): will be called to save monitoring data from 
+                  polling service.
+
+    2) getData(): will be called to respond api call "/api/monitor"
+                  and it will return records with timstamp under last 5
+                  minutes.
+  Environment variables:
+    1) DATA_JSON_URL(default="/usr/app/monitor-api/data.json")
+*/
 const fs = require("fs");
+const dataJsonUrl =
+  process.env.DATA_JSON_URL || "/usr/app/monitor-api/data.json";
 
 const saveData = data => {
-  fs.readFile("/usr/app/monitor-api/data.json", (error, obj) => {
+  fs.readFile(dataJsonUrl, (error, obj) => {
     if (error) console.log("error reading while pushing data " + error);
     let existingData = obj ? JSON.parse(obj) : [];
     existingData.splice(0, 0, data);
-    fs.writeFile(
-      "/usr/app/monitor-api/data.json",
-      JSON.stringify(existingData),
-      error => {
-        if (error) console.log("Error while writing " + error);
-      }
-    );
+    fs.writeFile(dataJsonUrl, JSON.stringify(existingData), error => {
+      if (error) console.log("Error while writing " + error);
+    });
   });
 };
 
 const getData = (interval = "5") => {
   try {
-    if (require.cache["/usr/app/monitor-api/data.json"]) {
-      delete require.cache["/usr/app/monitor-api/data.json"];
+    if (require.cache[dataJsonUrl]) {
+      delete require.cache[dataJsonUrl];
     }
-    const data = require("/usr/app/monitor-api/data.json");
+    const data = require(dataJsonUrl);
     // console.log(data);
     let result = [];
     if (interval == "5") {

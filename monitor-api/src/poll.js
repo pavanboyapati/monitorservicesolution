@@ -1,23 +1,31 @@
+/*
+Polling function 'pollMagnificent' will be initialized 
+when this monitor-api app gets started in index.js
+Environment variables used(optional):
+  1) MONITOR_URL(default="http://magnificent:12345")
+  2) POLL_INTERVAL(default=15000)
+*/
 const request = require("request");
 const { saveData } = require("./handleData");
+const pollingInterval = process.env.POLL_INTERVAL || 15000;
+const monitorUrl = process.env.MONITOR_URL || "http://magnificent:12345";
 
 const pollMagnificent = () => {
   setTimeout(() => {
-    request("http://magnificent:12345", function(error, response, body) {
+    request(monitorUrl, function(error, response, body) {
       const data = {};
       if (error) {
         data.statusCode = "error";
         console.log("error:", error); // Print the error if one occurred
       }
-      //   console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      //   console.log("body:", body); // Print the HTML for the Google homepage.
+
       data.statusCode = response && response.statusCode;
       data.timestamp = new Date();
-      console.log(data);
+      // console.log(data);
       saveData(data);
       pollMagnificent();
     });
-  }, 15000);
+  }, pollingInterval);
 };
 
 module.exports = pollMagnificent;
