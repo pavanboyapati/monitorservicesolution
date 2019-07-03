@@ -16,9 +16,9 @@ Steps to clone repository and run the solution:
           or
      sudo docker-compose up -d --build (Runs in detached mode)
      Terminal output for above command:
-        Starting monitorservicesolution_magnificent_1 ... done
-        Starting monitorservicesolution_monitor-api_1 ... done
-        Starting monitorservicesolution_monitor-ui_1 ... done
+          Starting monitorservicesolution_magnificent_1 ... done
+          Starting monitorservicesolution_monitor-api_1 ... done
+          Starting monitorservicesolution_monitor-ui_1 ... done
   4) lauch monitor-ui: http://localhost:3000
   
   
