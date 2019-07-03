@@ -1,0 +1,27 @@
+/monitor-api/data.json
+/monitor-api/node_modules
+/node_modules
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/monitor-ui/node_modules
+/monitor-ui/.pnp
+/monitor-ui/.pnp.js
+
+# testing
+/monitor-ui/coverage
+
+# production
+/monitor-ui/build
+
+# misc
+/monitor-ui/.DS_Store
+/monitor-ui/.env.local
+/monitor-ui/.env.development.local
+/monitor-ui/.env.test.local
+/monitor-ui/.env.production.local
+
+/monitor-ui/npm-debug.log*
+/monitor-ui/yarn-debug.log*
+/monitor-ui/yarn-error.log*
